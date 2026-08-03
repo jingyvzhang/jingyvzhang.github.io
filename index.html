@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Name</title>
+  <meta name="author" content="Your Name">
+  <meta name="description" content="Your Name's Homepage">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=LXGW+WenKai+TC:wght@300;400;700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --font-sans: 'DM Sans', 'LXGW WenKai TC', 'PingFang SC', 'Microsoft YaHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      --font-display: 'DM Serif Display', 'Georgia', serif;
+      --font-anthropic-serif: 'Newsreader', 'Charter', 'Sitka Text', 'Georgia', serif;
+      --font-mono: 'MapleMono', 'SF Mono', 'Fira Code', monospace;
+
+      --c-bg: #faf9f7;
+      --c-bg-nav: rgba(250, 249, 247, 0.85);
+      --c-bg-card: #ffffff;
+      --c-bg-card-hover: #fefefe;
+      --c-text: #1a1612;
+      --c-text-secondary: #52504b;
+      --c-text-muted: #8b8783;
+      --c-accent: #b15a27;
+      --c-accent-hover: #943f14;
+      --c-border: #e8e5e0;
+      --c-border-light: #f0eeea;
+      --c-highlight-bg: #fef7ed;
+      --c-highlight-text: #9a6b2f;
+      --c-highlight-border: #ecd9b5;
+      --c-oral-bg: #f4f0fa;
+      --c-oral-text: #6b4fa0;
+      --c-oral-border: #d8cce8;
+
+      --max-w: 1000px;
+      --nav-h: 64px;
+      --radius: 12px;
+      --radius-sm: 8px;
+
+      --space-xs: 4px;
+      --space-sm: 8px;
+      --space-md: 16px;
+      --space-lg: 32px;
+      --space-xl: 46px;
+      --space-2xl: 36px;
+      --space-3xl: 70px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-anthropic-serif);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: var(--c-text);
+      background: var(--c-bg);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ===== Nav ===== */
+    .site-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--c-bg-nav);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--c-border);
+      height: var(--nav-h);
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-inner {
+      max-width: var(--max-w);
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-name {
+      font-family: var(--font-display);
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--c-text);
+      text-decoration: none;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-name:hover {
+      color: var(--c-accent);
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--c-text-secondary);
+      text-decoration: none;
+      transition: color 0.2s ease;
+      letter-spacing: -0.01em;
+    }
+
+    .nav-links a:hover {
+      color: var(--c-text);
+      text-decoration: none;
+    }
+
+    /* ===== Typography ===== */
+    h1,
+    h2,
+    h3 {
+      font-family: var(--font-display);
+      font-weight: 450;
+      color: var(--c-text);
+      letter-spacing: -0.01em;
+    }
+
+    h1 {
+      font-size: 46px;
+      line-height: 1.15;
+    }
+
+    h2 {
+      font-size: 32px;
+      line-height: 1.2;
+    }
+
+    a {
+      color: var(--c-accent);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a:hover {
+      color: var(--c-accent-hover);
+    }
+
+    /* ===== Layout ===== */
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 var(--space-lg);
+    }
+
+    .section {
+      padding: var(--space-2xl) 0;
+    }
+
+    .section+.section {
+      border-top: 1px solid var(--c-border);
+    }
+
+    .section-label {
+      font-family: var(--font-display);
+      font-size: 36px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--c-text);
+      margin-bottom: var(--space-lg);
+    }
+
+    /* ===== Hero / Profile ===== */
+    .hero {
+      padding: var(--space-3xl) 0 var(--space-2xl);
+    }
+
+    .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .hero-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .hero-name {
+      margin-bottom: 4px;
+    }
+
+    .hero-name-cn {
+      font-family: 'LXGW WenKai TC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+      font-size: 34px;
+      font-weight: 400;
+      color: var(--c-text-muted);
+      margin-left: 10px;
+    }
+
+    .hero-email {
+      font-size: 15px;
+      font-family: var(--font-anthropic-serif);
+      color: var(--c-text-muted);
+      margin-bottom: var(--space-lg);
+      letter-spacing: -0.02em;
+    }
+
+    .hero-email a {
+      color: var(--c-text-muted);
+    }
+
+    .hero-email a:hover {
+      color: var(--c-accent);
+    }
+
+    .hero-bio {
+      font-family: var(--font-anthropic-serif);
+      font-size: 18px;
+      line-height: 1.75;
+      color: var(--c-text-secondary);
+      margin-bottom: var(--space-md);
+    }
+
+    .hero-bio a {
+      font-family: inherit;
+      color: var(--c-text);
+      font-weight: 600;
+      text-decoration: underline;
+      text-decoration-color: var(--c-border);
+      text-underline-offset: 3px;
+      transition: text-decoration-color 0.2s ease, color 0.2s ease;
+    }
+
+    .hero-bio a:hover {
+      color: var(--c-accent);
+      text-decoration-color: var(--c-accent);
+    }
+
+    .hero-interests {
+      font-family: var(--font-anthropic-serif);
+      font-size: 18px;
+      line-height: 1.7;
+      color: var(--c-text-muted);
+      margin-bottom: var(--space-lg);
+    }
+
+    .hero-photo {
+      flex-shrink: 0;
+      width: 180px;
+    }
+
+    .hero-photo img {
+      width: 100%;
+      border-radius: var(--radius);
+      filter: grayscale(5%);
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-links a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--c-text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 16px;
+      border-radius: 100px;
+      border: 1px solid var(--c-border);
+      background: var(--c-bg-card);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .hero-links a:hover {
+      border-color: var(--c-text-muted);
+      color: var(--c-text);
+      text-decoration: none;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+    }
+
+    .hero-links a i {
+      font-size: 15px;
+      width: 16px;
+      text-align: center;
+    }
+
+    /* ===== Publication Cards ===== */
+    .section-note {
+      font-size: 18px;
+      color: var(--c-text-muted);
+      margin-top: -20px;
+      margin-bottom: var(--space-lg);
+    }
+
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .pub-entry {
+      display: flex;
+      gap: 24px;
+      padding: 24px;
+      background: var(--c-bg-card);
+      border: 1px solid var(--c-border-light);
+      border-radius: var(--radius);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .pub-entry:hover {
+      border-color: var(--c-border);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .pub-thumb {
+      flex-shrink: 0;
+      width: 180px;
+      align-self: center;
+    }
+
+    .pub-thumb img {
+      width: 100%;
+      display: block;
+      border-radius: 0;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform-origin: center center;
+    }
+
+    .pub-thumb img:hover {
+      transform: scale(1.3);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+      position: relative;
+      z-index: 10;
+    }
+
+    .pub-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .pub-title {
+      font-family: var(--font-anthropic-serif);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.4;
+      color: var(--c-text);
+      margin-bottom: var(--space-xs);
+    }
+
+    .pub-title a {
+      color: var(--c-text);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .pub-title a:hover {
+      color: var(--c-accent);
+    }
+
+    .pub-star {
+      color: #c9963b;
+      font-size: 13px;
+      margin-right: 3px;
+    }
+
+    .pub-star .fa-star {
+      display: inline-block;
+      transition: transform 0.4s ease;
+    }
+
+    .pub-star .fa-star:hover {
+      transform: rotate(360deg) scale(1.2);
+    }
+
+    .pub-authors {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--c-text-muted);
+      margin-bottom: var(--space-sm);
+    }
+
+    .pub-authors strong {
+      color: var(--c-text);
+      font-weight: 610;
+    }
+
+    .pub-venue {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: var(--space-sm);
+    }
+
+    .venue-tag {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.2;
+      font-family: var(--font-anthropic-serif);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: var(--c-bg);
+      color: var(--c-text-secondary);
+      text-decoration: none;
+      border: 1px solid var(--c-border-light);
+      transition: all 0.15s ease;
+    }
+
+    .venue-tag:hover {
+      border-color: var(--c-border);
+      color: var(--c-text);
+      text-decoration: none;
+    }
+
+    .badge-highlight {
+      background: var(--c-highlight-bg);
+      color: var(--c-highlight-text);
+      border-color: var(--c-highlight-border);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .badge-highlight:hover {
+      box-shadow: 0 0 8px rgba(200, 160, 60, 0.3);
+    }
+
+    .badge-oral {
+      background: var(--c-oral-bg);
+      color: var(--c-oral-text);
+      border-color: var(--c-oral-border);
+      position: relative;
+      cursor: pointer;
+    }
+
+    .badge-oral:hover {
+      box-shadow: 0 0 8px rgba(139, 92, 246, 0.3);
+    }
+
+    .badge-tooltip {
+      position: absolute;
+      bottom: calc(100% + 8px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--c-text);
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-family: var(--font-anthropic-serif);
+      font-weight: 500;
+      white-space: nowrap;
+      letter-spacing: 0;
+      text-transform: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .badge-tooltip::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: var(--c-text) transparent transparent transparent;
+    }
+
+    .badge-highlight:hover .badge-tooltip,
+    .badge-oral:hover .badge-tooltip {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(-2px);
+    }
+
+    .pub-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3px 12px;
+    }
+
+    .pub-links a {
+      font-size: 18px;
+      font-family: var(--font-anthropic-serif);
+      font-weight: 500;
+      color: var(--c-accent);
+      letter-spacing: 0;
+    }
+
+    .pub-links a:hover {
+      text-decoration: underline;
+    }
+
+    .fn-mark {
+      font-size: 1.2em;
+      color: var(--c-text-muted);
+      vertical-align: 0.1em;
+      line-height: 0;
+    }
+
+    /* ===== Entry Rows (Edu / Exp) ===== */
+    .entry-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .entry-row {
+      display: flex;
+      align-items: center;
+      gap: 60px;
+      padding: 28px;
+      background: var(--c-bg-card);
+      border: 1px solid var(--c-border-light);
+      border-radius: var(--radius);
+      transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+    }
+
+    .entry-row:hover {
+      border-color: var(--c-border);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+      transform: translateY(-2px);
+    }
+
+    .entry-logo {
+      flex-shrink: 0;
+      width: 120px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .entry-logo img {
+      max-width: 94px;
+      max-height: 84px;
+      object-fit: contain;
+    }
+
+    .entry-logo-dual {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .entry-logo-dual img {
+      max-width: 62px;
+      max-height: 62px;
+      object-fit: contain;
+    }
+
+    .entry-logo-divider {
+      width: 1px;
+      height: 36px;
+      background: var(--c-border);
+    }
+
+    .entry-body {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .entry-title {
+      font-family: var(--font-anthropic-serif);
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 1.35;
+      margin-bottom: 2px;
+    }
+
+    .entry-title a {
+      color: var(--c-text);
+      font-weight: 600;
+    }
+
+    .entry-title a:hover {
+      color: var(--c-accent);
+      text-decoration: none;
+    }
+
+    .entry-detail {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--c-text-secondary);
+    }
+
+    .entry-detail a {
+      color: var(--c-accent);
+    }
+
+    .entry-date {
+      font-size: 14px;
+      color: var(--c-text-muted);
+      font-family: var(--font-anthropic-serif);
+      letter-spacing: 0;
+      margin-top: 2px;
+    }
+
+    .entry-logo.entry-logo-wide {
+      width: 150px;
+    }
+
+    .entry-logo-wide img {
+      max-width: 150px;
+      max-height: 72px;
+    }
+
+    .entry-logo-wide-stack {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .entry-logo-wide-stack img:first-child {
+      max-width: 130px;
+    }
+
+    .entry-logo-wide-stack img:last-child {
+      max-width: 100px;
+    }
+
+    /* ===== Awards / Services / Misc ===== */
+    .text-block {
+      font-size: 18px;
+      line-height: 1.3;
+      color: var(--c-text-secondary);
+    }
+
+    .text-block p {
+      margin-bottom: var(--space-sm);
+    }
+
+    .text-block strong {
+      color: var(--c-text);
+      font-size: 20px;
+    }
+
+    .text-block ul {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .text-block li {
+      margin-bottom: var(--space-xs);
+    }
+
+    .awards-list {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .awards-line {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-md);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--c-border-light);
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .awards-line:last-child {
+      border-bottom: none;
+    }
+
+    .awards-year {
+      flex-shrink: 0;
+      font-family: var(--font-anthropic-serif);
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--c-text-muted);
+      min-width: 64px;
+    }
+
+    .awards-desc {
+      color: var(--c-text-secondary);
+    }
+
+    .tooltip-inline {
+      position: relative;
+      cursor: help;
+      border-bottom: 1px dotted var(--c-text-muted);
+      color: var(--c-text);
+    }
+
+    .tooltip-inline::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--c-text);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-family: var(--font-anthropic-serif);
+      font-weight: 500;
+      white-space: nowrap;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.15s ease, visibility 0.15s ease;
+      pointer-events: none;
+    }
+
+    .tooltip-inline:hover::after {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ===== Footer ===== */
+    .site-footer {
+      text-align: center;
+      padding: var(--space-xl) 0;
+      font-size: 16px;
+      color: var(--c-text-muted);
+      border-top: 1px solid var(--c-border);
+    }
+
+    .site-footer a {
+      color: var(--c-text-muted);
+    }
+
+    .site-footer a:hover {
+      color: var(--c-accent);
+    }
+
+    .globe-widget {
+      margin: var(--space-lg) auto var(--space-md);
+      text-align: center;
+      max-width: 150px;
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 700px) {
+      :root {
+        --space-2xl: 28px;
+        --space-3xl: 40px;
+      }
+
+      html,
+      body {
+        overflow-x: hidden;
+      }
+
+      .container {
+        padding: 0 var(--space-md);
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+
+      .nav-inner {
+        padding: 0 var(--space-md);
+      }
+
+      .nav-name {
+        font-size: 16px;
+      }
+
+      .nav-links {
+        gap: 12px;
+      }
+
+      .nav-links a {
+        font-size: 13px;
+      }
+
+      h1 {
+        font-size: 30px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      .section-label {
+        font-size: 26px;
+      }
+
+      .hero-inner {
+        flex-direction: column-reverse;
+        align-items: center;
+        gap: var(--space-lg);
+        text-align: center;
+      }
+
+      .hero-photo {
+        width: 130px;
+      }
+
+      .hero-bio {
+        text-align: left;
+        font-size: 16px;
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .hero-bio a {
+        word-break: break-word;
+      }
+
+      .hero-email {
+        font-size: 14px;
+      }
+
+      .hero-interests {
+        font-size: 15px;
+        text-align: left;
+      }
+
+      .hero-links {
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .hero-links a {
+        font-size: 13px;
+        padding: 6px 12px;
+      }
+
+      .hero-name-cn {
+        font-size: 28px;
+      }
+
+      .section-note {
+        font-size: 15px;
+      }
+
+      .pub-entry {
+        flex-direction: column;
+        gap: var(--space-md);
+        padding: 16px;
+      }
+
+      .pub-thumb {
+        width: 80%;
+        max-width: 240px;
+        align-self: center;
+      }
+
+      .pub-title {
+        font-size: 20px;
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .pub-authors {
+        font-size: 14px;
+        word-break: break-word;
+        overflow-wrap: break-word;
+      }
+
+      .pub-venue {
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .venue-tag {
+        font-size: 12px;
+        padding: 2px 8px;
+      }
+
+      .pub-links {
+        gap: 2px 8px;
+      }
+
+      .pub-links a {
+        font-size: 15px;
+      }
+
+      .entry-row {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--space-sm);
+        padding: 16px;
+      }
+
+      .entry-logo {
+        width: auto;
+      }
+
+      .entry-logo img {
+        max-width: 70px;
+        max-height: 70px;
+      }
+
+      .entry-title {
+        font-size: 23px;
+        word-break: break-word;
+      }
+
+      .entry-detail {
+        font-size: 16px;
+        word-break: break-word;
+      }
+
+      .entry-date {
+        font-size: 14px;
+      }
+
+      .entry-logo-wide img {
+        max-width: 130px;
+        max-height: 60px;
+      }
+
+      .entry-logo-wide-stack img:first-child {
+        max-width: 100px;
+      }
+
+      .entry-logo-wide-stack img:last-child {
+        max-width: 80px;
+      }
+
+      .awards-line {
+        flex-direction: column;
+        gap: 2px;
+        font-size: 15px;
+      }
+
+      .awards-year {
+        min-width: auto;
+        font-size: 13px;
+      }
+
+      .text-block {
+        font-size: 15px;
+        word-break: break-word;
+      }
+
+      .text-block strong {
+        font-size: 17px;
+      }
+
+      .site-footer {
+        font-size: 14px;
+      }
+
+      .globe-widget {
+        display: none;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .container {
+        padding: 0 12px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      .hero-name-cn {
+        font-size: 24px;
+        display: block;
+        margin-left: 0;
+        margin-top: 4px;
+      }
+
+      .nav-links {
+        gap: 8px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .pub-title {
+        font-size: 16px;
+      }
+
+      .entry-title {
+        font-size: 16px;
+      }
+
+      .pub-thumb {
+        width: 100%;
+        max-width: 200px;
+      }
+    }
+
+    @media print {
+      body {
+        font-size: 14px;
+      }
+
+      .container {
+        max-width: 100%;
+        padding: 0;
+      }
+
+      .site-nav,
+      .globe-widget,
+      .site-footer {
+        display: none;
+      }
+
+      a {
+        color: var(--c-text) !important;
+      }
+
+      .pub-entry,
+      .entry-row {
+        box-shadow: none;
+        border: 1px solid #ddd;
+      }
+
+      .pub-thumb {
+        width: 120px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ===== Navigation ===== -->
+  <nav class="site-nav">
+    <div class="nav-inner">
+      <a href="#" class="nav-name" id="nav-name-toggle">Homepage</a>
+      <ul class="nav-links">
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#experience">Experiences</a></li>
+        <li><a href="#awards">Awards</a></li>
+        <li><a href="#services">Services</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <!-- ===== Hero / Profile ===== -->
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="hero-info">
+          <h1 class="hero-name">
+            Your Name<span class="hero-name-cn">你的名字</span>
+          </h1>
+          <p class="hero-email">
+            <a href="mailto:your.email@example.com">your.email@example.com</a>
+          </p>
+          <p class="hero-bio">
+            I am a <a href="#">your position</a> at
+            <a href="#">your institution</a>,
+            advised by Prof. <a href="#">your advisor</a>.
+            Prior to this, I obtained my degree at
+            <a href="#">previous institution</a>.
+          </p>
+          <p class="hero-interests">
+            My research interests include <!-- your research interests -->.
+          </p>
+          <div class="hero-links">
+            <a href="https://scholar.google.com.hk/citations?user=EThFudUAAAAJ&hl=zh-CN"><i class="fab fa-google"></i>
+              Scholar</a>
+            <a href="https://github.com/your-username"><i class="fab fa-github"></i> GitHub</a>
+          </div>
+        </div>
+        <div class="hero-photo">
+          <!-- Replace with your photo: put an image at images/photo.jpg -->
+          <img src="https://via.placeholder.com/180x180?text=Your+Photo" alt="Your Name">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Publications ===== -->
+    <section class="section" id="publications">
+      <div class="section-label">Publications</div>
+      <p class="section-note">
+        <i class="fa-solid fa-asterisk" style="font-size:0.7em;color:#aaa;"></i>&thinsp;Equal contribution &ensp;
+        #&thinsp;Corresponding author
+      </p>
+
+      <div class="pub-list">
+
+        <!--
+          Publication template — copy & paste to add more entries.
+          Replace all [...] placeholders with your data.
+
+        <div class="pub-entry">
+          <div class="pub-thumb">
+            <img src="images/paper_thumbnail.jpg" alt="Paper Title">
+          </div>
+          <div class="pub-body">
+            <div class="pub-title">
+              <a href="https://link.to.paper">Paper Title Here</a>
+            </div>
+            <div class="pub-authors">
+              Author One, <strong>Your Name</strong>, Author Three<sup>#</sup>
+            </div>
+            <div class="pub-venue">
+              <a href="https://link.to.conference" class="venue-tag">Conference/Journal Year</a>
+            </div>
+            <div class="pub-links">
+              <a href="https://link.to.paper">[paper]</a>
+              <a href="https://link.to.arxiv">[arxiv]</a>
+              <a href="https://link.to.project">[project]</a>
+              <a href="https://link.to.code">[code]</a>
+            </div>
+          </div>
+        </div>
+        -->
+
+        <div class="pub-entry">
+          <div class="pub-body" style="text-align: center; padding: 40px;">
+            <p style="font-size: 18px; color: var(--c-text-muted);">
+              Publications will be populated here once you provide your paper list.<br>
+              You can paste your Google Scholar publications and I'll format them.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== Education ===== -->
+    <section class="section" id="education">
+      <div class="section-label">Education</div>
+
+      <div class="entry-list">
+
+        <!--
+          Education entry template — copy & paste to add more.
+
+        <div class="entry-row">
+          <div class="entry-logo">
+            <img src="images/university_logo.png" alt="University">
+          </div>
+          <div class="entry-body">
+            <div class="entry-title">
+              <a href="https://www.university.edu">University Name</a>
+            </div>
+            <div class="entry-detail">
+              Degree in Major<br>
+              Advised by <a href="#">Prof. Advisor Name</a>
+            </div>
+            <div class="entry-date">Sept. 20XX &ndash; Present</div>
+          </div>
+        </div>
+        -->
+
+        <div class="entry-row">
+          <div class="entry-body" style="text-align: center; padding: 20px;">
+            <p style="font-size: 18px; color: var(--c-text-muted);">
+              Education entries will be populated here.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== Experience ===== -->
+    <section class="section" id="experience">
+      <div class="section-label">Experiences</div>
+
+      <div class="entry-list">
+
+        <!--
+          Experience entry template — copy & paste to add more.
+
+        <div class="entry-row">
+          <div class="entry-logo entry-logo-wide">
+            <img src="images/company_logo.svg" alt="Company">
+          </div>
+          <div class="entry-body">
+            <div class="entry-title">
+              <a href="https://www.company.com">Company Name</a>
+            </div>
+            <div class="entry-detail">
+              Research Intern<br>
+              Research topic / team description
+            </div>
+            <div class="entry-date">Month 20XX &ndash; Month 20XX</div>
+          </div>
+        </div>
+        -->
+
+        <div class="entry-row">
+          <div class="entry-body" style="text-align: center; padding: 20px;">
+            <p style="font-size: 18px; color: var(--c-text-muted);">
+              Experience entries will be populated here.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== Awards ===== -->
+    <section class="section" id="awards">
+      <div class="section-label">Awards</div>
+
+      <div class="awards-list">
+
+        <!--
+          Award entry template — copy & paste to add more.
+
+        <div class="awards-line">
+          <span class="awards-year">20XX.XX</span>
+          <span class="awards-desc">Award description here</span>
+        </div>
+        -->
+
+        <div class="awards-line">
+          <span class="awards-year">----</span>
+          <span class="awards-desc" style="color: var(--c-text-muted);">Awards will be populated here.</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== Services ===== -->
+    <section id="services" class="section">
+      <div class="section-label">Services</div>
+
+      <div class="text-block">
+        <p><strong>Reviewer:</strong></p>
+        <ul>
+          <li>Conference: <!-- your conferences --></li>
+          <li>Journal: <!-- your journals --></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer">
+      Last update: August 2026 &ensp;/&ensp;
+      <a href="https://github.com/jonbarron/jonbarron_website">Thanks for the template</a>
+    </footer>
+
+  </div>
+</body>
+
+</html>
+
+<script>
+  (function () {
+    const navName = document.getElementById('nav-name-toggle');
+    const heroName = document.querySelector('.hero-name');
+    if (!navName || !heroName) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          navName.style.opacity = '0';
+          setTimeout(() => {
+            navName.textContent = 'Homepage';
+            navName.style.opacity = '1';
+          }, 150);
+        } else {
+          navName.style.opacity = '0';
+          setTimeout(() => {
+            navName.textContent = 'Your Name';
+            navName.style.opacity = '1';
+          }, 150);
+        }
+      },
+      { threshold: 0, rootMargin: '-60px 0px 0px 0px' }
+    );
+
+    navName.style.transition = 'opacity 0.15s ease';
+    observer.observe(heroName);
+  })();
+</script>
