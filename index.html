@@ -1107,6 +1107,15 @@
             <a href="https://scholar.google.com/citations?user=EThFudUAAAAJ"><i class="fab fa-google"></i>
               Scholar</a>
             <a href="https://github.com/Terry9a"><i class="fab fa-github"></i> GitHub</a>
+            <a href="javascript:void(0)" id="wechat-btn"><i class="fab fa-weixin"></i> WeChat</a>
+          </div>
+          <div id="wechat-modal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;align-items:center;justify-content:center;" onclick="if(event.target===this)this.style.display='none';">
+            <div style="background:#fff;border-radius:12px;padding:24px;text-align:center;max-width:320px;">
+              <p style="font-size:16px;color:var(--c-text);margin-bottom:16px;font-family:var(--font-anthropic-serif);">WeChat QR Code</p>
+              <img src="images/wechat.jpg" alt="WeChat QR Code" style="width:250px;border-radius:8px;"
+                   onerror="this.onerror=null;this.style.display='none';this.parentElement.innerHTML='<p style=\'color:var(--c-text-muted);font-size:14px;\'>Please upload images/wechat.jpg</p>';">
+              <p style="margin-top:12px;font-size:13px;color:var(--c-text-muted);cursor:pointer;" onclick="document.getElementById('wechat-modal').style.display='none';">Click anywhere to close</p>
+            </div>
           </div>
         </div>
         <div class="hero-photo">
@@ -1560,5 +1569,14 @@
 
     navName.style.transition = 'opacity 0.15s ease';
     observer.observe(heroName);
+  })();
+
+  (function () {
+    var btn = document.getElementById('wechat-btn');
+    var modal = document.getElementById('wechat-modal');
+    if (!btn || !modal) return;
+    btn.addEventListener('click', function () {
+      modal.style.display = 'flex';
+    });
   })();
 </script>
