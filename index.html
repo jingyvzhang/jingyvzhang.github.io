@@ -322,13 +322,13 @@
     .pub-list {
       display: flex;
       flex-direction: column;
-      gap: var(--space-md);
+      gap: 8px;
     }
 
     .pub-entry {
       display: flex;
-      gap: 24px;
-      padding: 24px;
+      gap: 16px;
+      padding: 16px;
       background: var(--c-bg-card);
       border: 1px solid var(--c-border-light);
       border-radius: var(--radius);
@@ -343,7 +343,7 @@
 
     .pub-thumb {
       flex-shrink: 0;
-      width: 180px;
+      width: 120px;
       align-self: center;
     }
 
@@ -369,11 +369,11 @@
 
     .pub-title {
       font-family: var(--font-anthropic-serif);
-      font-size: 20px;
+      font-size: 17px;
       font-weight: 600;
-      line-height: 1.4;
+      line-height: 1.35;
       color: var(--c-text);
-      margin-bottom: var(--space-xs);
+      margin-bottom: 2px;
     }
 
     .pub-title a {
@@ -402,10 +402,13 @@
     }
 
     .pub-authors {
-      font-size: 16px;
-      line-height: 1.6;
+      font-size: 13px;
+      line-height: 1.4;
       color: var(--c-text-muted);
-      margin-bottom: var(--space-sm);
+      margin-bottom: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     .pub-authors strong {
@@ -1283,7 +1286,7 @@
             <div class="pub-authors">
               <strong>Jingyu Zhang</strong>, Kun Yang, Ming Wen, Jiawei Zhao, Yuxuan Liu, Zhuoer Xu, Shiwen Cui
             </div>
-            <p style="font-size:15px;color:var(--c-text-muted);margin-top:4px;line-height:1.5;">
+            <p style="font-size:13px;color:var(--c-text-muted);margin-top:2px;margin-bottom:4px;line-height:1.4;">
               Designs a pair-wise GRM with rubric-based reasoning for interpretable and efficient multimodal preference modeling and RL alignment.
             </p>
             <div class="pub-venue-links">
@@ -1309,7 +1312,7 @@
             <div class="pub-authors">
               <strong>Jingyu Zhang</strong>, Kun Yang, Ming Wen, Zhuoer Xu, Zeyang Sha, Shiwen Cui, Zhaohui Yang
             </div>
-            <p style="font-size:15px;color:var(--c-text-muted);margin-top:4px;line-height:1.5;">
+            <p style="font-size:13px;color:var(--c-text-muted);margin-top:2px;margin-bottom:4px;line-height:1.4;">
               Systematically reveals the reasoning-safety conflict in multimodal reasoning models and proposes a policy-guided two-stage post-training method to significantly reduce harmful outputs.
             </p>
             <div class="pub-venue-links">
@@ -1335,7 +1338,7 @@
             <div class="pub-authors">
               Ming Wen, Kun Yang, <strong>Jingyu Zhang</strong>, Dingding Han, Shiwen Cui, Yuedong Xu
             </div>
-            <p style="font-size:15px;color:var(--c-text-muted);margin-top:4px;line-height:1.5;">
+            <p style="font-size:13px;color:var(--c-text-muted);margin-top:2px;margin-bottom:4px;line-height:1.4;">
               Proposes an end-to-end multimodal alignment framework balancing safety and helpfulness, using a parallel multi-head dynamic reward model to mitigate over-refusal and latent risk omission.
             </p>
             <div class="pub-venue-links">
@@ -1363,7 +1366,7 @@
               Yilei Wang<span class="fn-mark">*</span>,
               Lang Qian, Peng Sun, Zengwen Li, Sudong Jiang, Maolin Liu, Liang Song
             </div>
-            <p style="font-size:15px;color:var(--c-text-muted);margin-top:4px;line-height:1.5;">
+            <p style="font-size:13px;color:var(--c-text-muted);margin-top:2px;margin-bottom:4px;line-height:1.4;">
               Leverages online distillation for representation learning to improve robustness under challenging conditions.
             </p>
             <div class="pub-venue-links">
@@ -1389,7 +1392,7 @@
             <div class="pub-authors">
               <strong>Jingyu Zhang</strong>, Kun Yang, Yilei Wang, Hanqi Wang, Peng Sun, Liang Song
             </div>
-            <p style="font-size:15px;color:var(--c-text-muted);margin-top:4px;line-height:1.5;">
+            <p style="font-size:13px;color:var(--c-text-muted);margin-top:2px;margin-bottom:4px;line-height:1.4;">
               Proposes a collaboration-robust multi-agent framework via hierarchical feature sampling and pose calibration.
             </p>
             <div class="pub-venue-links">
@@ -1417,7 +1420,7 @@
               <strong>Jingyu Zhang</strong><span class="fn-mark">*</span>,
               Muyang Zhang, Weiliang Meng, Shibiao Xu, Jiguang Zhang, Xiaopeng Zhang
             </div>
-            <p style="font-size:15px;color:var(--c-text-muted);margin-top:4px;line-height:1.5;">
+            <p style="font-size:13px;color:var(--c-text-muted);margin-top:2px;margin-bottom:4px;line-height:1.4;">
               Proposes feature-level pose calibration and cross-scale attention to improve collaborative perception robustness without additional training.
             </p>
             <div class="pub-venue-links">
@@ -1443,7 +1446,7 @@
             <div class="pub-authors">
               <strong>Jingyu Zhang</strong>, Yilei Wang, Kun Yang, Hanqi Wang, Qiang Fu, Zhiyong Chen, Peng Sun, Liang Song
             </div>
-            <p style="font-size:15px;color:var(--c-text-muted);margin-top:4px;line-height:1.5;">
+            <p style="font-size:13px;color:var(--c-text-muted);margin-top:2px;margin-bottom:4px;line-height:1.4;">
               First to propose a reinforcement learning-based feature selection paradigm for efficient cross-task and cross-modal collaboration.
             </p>
             <div class="pub-venue-links">
@@ -1469,7 +1472,7 @@
             <div class="pub-authors">
               <strong>Jingyu Zhang</strong>, Kun Yang, Hanqi Wang, Peng Sun, Liang Song
             </div>
-            <p style="font-size:15px;color:var(--c-text-muted);margin-top:4px;line-height:1.5;">
+            <p style="font-size:13px;color:var(--c-text-muted);margin-top:2px;margin-bottom:4px;line-height:1.4;">
               Adaptively balances perception accuracy and communication overhead by selecting key spatial regions and exploiting temporal redundancy.
             </p>
             <div class="pub-venue-links">
@@ -1495,7 +1498,7 @@
             <div class="pub-authors">
               <strong>Jingyu Zhang</strong>, Zhan-Yu Wu, Ranjie Duan, Richeng Xuan
             </div>
-            <p style="font-size:15px;color:var(--c-text-muted);margin-top:4px;line-height:1.5;">
+            <p style="font-size:13px;color:var(--c-text-muted);margin-top:2px;margin-bottom:4px;line-height:1.4;">
               Designs adaptive dynamic red-teaming attacks, revealing that static evaluation significantly underestimates the real safety risks of tool-using agents.
             </p>
             <div class="pub-venue-links">
@@ -1521,7 +1524,7 @@
             <div class="pub-authors">
               Ming Wen, Kun Yang, <strong>Jingyu Zhang</strong>, Yuxuan Liu, Shiwen Cui, Shouling Ji, Xingjun Ma
             </div>
-            <p style="font-size:15px;color:var(--c-text-muted);margin-top:4px;line-height:1.5;">
+            <p style="font-size:13px;color:var(--c-text-muted);margin-top:2px;margin-bottom:4px;line-height:1.4;">
               Advances multimodal safety from "identifying harmful intent" to "predicting hidden consequences," using an online self-distillation (OPSD) post-training method to enhance risk causal reasoning.
             </p>
             <div class="pub-venue-links">
